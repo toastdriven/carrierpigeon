@@ -1,0 +1,21 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/greeting.v1.json",
+    "title": "Greeting",
+    "description": "The classic.",
+    "type": "object",
+    "properties": {
+        "greeting": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "version": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "version"
+    ]
+}

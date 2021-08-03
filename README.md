@@ -1,0 +1,39 @@
+# carrierpigeon
+
+Contract-based messages.
+
+
+## Quick Start
+
+```python
+import carrierpigeon as cp
+
+# Create a class from a JSONSchema.
+Greeting = cp.message_for("schemas/greeting.json")
+
+# It's a Python object.
+greet = Greeting(greeting="Hello", name="world")
+print(f"{greet.greeting}, {greet.name}!")
+# "Hello, world!"
+
+# You can create a contract-driven, serialized message to transfer over
+# the wire.
+print(greet.create())
+# '{"version": 1, "greeting": "Hello", "name": "world"}'
+
+# ...And you can read similar messages back.
+read_msg = Greeting.read('{"version": 1, "greeting": "Bonjour", "name": "madame"}')
+print(f"{read_msg.greeting}, {read_msg.name}!")
+# "Bonjour, madame!"
+```
+
+
+## Requirements
+
+* Python 3.8+ (though may work on previous versions)
+* `jsonschema`
+
+
+## License
+
+New BSD
