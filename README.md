@@ -62,3 +62,4 @@ New BSD
 * [ ] Protobuf support?
 * [ ] XML support?
 * [ ] JSONb support?
+* [ ] Interactive schema-creation tool?

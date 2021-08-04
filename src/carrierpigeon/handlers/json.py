@@ -4,6 +4,8 @@ import os
 
 import jsonschema
 
+from .. import exceptions
+
 
 class JSONHandler(object):
     def __init__(self, schema_path=None):
@@ -38,5 +40,12 @@ class JSONHandler(object):
         return json.dumps(data)
 
     def validate(self, raw_data):
-        # FIXME: We need to catch errors here & do better.
-        jsonschema.validate(instance=raw_data, schema=self.schema)
+        try:
+            jsonschema.validate(instance=raw_data, schema=self.schema)
+        except jsonschema.exceptions.ValidationError as err:
+            errors = []
+
+            # TODO: Might need to collect multiple errors here.
+            errors.append([".".join(err.path), err.message])
+
+            raise exceptions.ValidationError(errors)
