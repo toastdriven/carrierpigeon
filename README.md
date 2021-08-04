@@ -27,6 +27,18 @@ print(f"{read_msg.greeting}, {read_msg.name}!")
 # "Bonjour, madame!"
 ```
 
+...or, if you have a bunch of schemas/contracts:
+
+```python
+import carrierpigeon as cp
+
+library = cp.load_library("schemas/")
+
+greet = library.Greeting(greeting="Hey", name="friendo")
+print(greet.create())
+# '{"version": 1, "greeting": "Hey", "name": "friendo"}'
+```
+
 
 ## Requirements
 

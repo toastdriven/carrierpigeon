@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/post_created.v1.json",
+    "title": "PostCreated",
+    "description": "Adding blog posts, the Big Data way.",
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string"
+        },
+        "content": {
+            "type": "string"
+        },
+        "author_id": {
+            "type": "integer"
+        },
+        "created": {
+            "type": "number"
+        },
+        "version": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "title",
+        "author_id",
+        "version"
+    ]
+}

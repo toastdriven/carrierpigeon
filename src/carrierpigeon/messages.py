@@ -2,6 +2,8 @@ from collections import OrderedDict
 import copy
 import os
 
+from . import exceptions
+
 # from .fields import Field
 from .handlers.json import JSONHandler
 
@@ -17,6 +19,10 @@ class BaseMessage(object):
 
         if kwargs:
             self.from_dict(kwargs)
+
+        # TODO: Not sure I love this.
+        if "version" not in self._orig_data and "version" not in self._data:
+            self._data["version"] = 1
 
     def __str__(self):
         return f"{self.__class__.__name__}: {self.all_data()}"
@@ -68,6 +74,15 @@ class BaseMessage(object):
         data = cls._handler.read(raw_msg)
         cls._handler.validate(data)
         return cls(**data)
+
+    def create(self):
+        data = self.all_data()
+
+        if "version" not in data:
+            raise exceptions.CarrierLost("No 'version' present in the message!")
+
+        self._handler.validate(data)
+        return self._handler.write(data)
 
 
 class MessageFactory(object):

@@ -34,5 +34,9 @@ class JSONHandler(object):
     def read(self, raw_msg):
         return json.loads(raw_msg)
 
+    def write(self, data):
+        return json.dumps(data)
+
     def validate(self, raw_data):
+        # FIXME: We need to catch errors here & do better.
         jsonschema.validate(instance=raw_data, schema=self.schema)
