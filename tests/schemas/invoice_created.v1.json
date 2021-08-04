@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/invoice_created.json",
+    "title": "InvoiceCreated",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "version": {
+            "type": "number"
+        },
+        "payee_id": {
+            "type": "number"
+        },
+        "payor_name": {
+            "type": "string"
+        },
+        "amount": {
+            "type": "number"
+        },
+        "notes": {
+            "type": "string"
+        },
+        "paid_on": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "version",
+        "payee_id",
+        "payor_name",
+        "amount",
+        "paid_on"
+    ]
+}

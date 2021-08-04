@@ -1,3 +1,4 @@
+import json
 import os
 import time
 
@@ -50,3 +51,15 @@ print(f"Available classes: {library.available_classes()}")
 
 new_greet = library.Greeting(greeting="Hey", name="friendo")
 print(new_greet.create())
+
+print()
+
+invoice_data = {
+    "payee_id": 27,
+    "payor_name": "Mr. Owes Me",
+    "amount": 25.99,
+    "paid_on": time.time(),
+    "version": 1,
+}
+invoice = library.InvoiceCreated.read(json.dumps(invoice_data))
+print(f"Invoice paid by {invoice.payor_name} in amount of ${invoice.amount}.")
