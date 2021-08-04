@@ -49,3 +49,16 @@ print(greet.create())
 ## License
 
 New BSD
+
+
+## TODO
+
+* [ ] Actual tests, rather than just an example script
+* [ ] Still JSON-heavy
+* [ ] Validation support (fields)
+* [ ] Better validation errors w/ JSONSchema
+* [ ] The `version` expectations may be too heavy-handed
+* [ ] Needs benchmarking/testing for efficiency
+* [ ] Protobuf support?
+* [ ] XML support?
+* [ ] JSONb support?
