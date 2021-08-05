@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name="carrierpigeon",
-    version="0.1.0-alpha",
+    version="0.2.0",
     description="Contract-based messages.",
     author="Daniel Lindsley",
     author_email="daniel@toastdriven.com",
@@ -21,7 +21,7 @@ setup(
         "pytest",
     ],
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",

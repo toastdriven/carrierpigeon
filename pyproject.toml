@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "carrierpigeon"
-version = "0.1.0-alpha"
+version = "0.2.0"
 description = "Contract-based messages."
 authors = ["Daniel Lindsley <daniel@toastdriven.com>"]
 license = "BSD-3-Clause"
