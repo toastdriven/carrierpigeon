@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/user_followed.v2.json",
+    "title": "UserFollowed",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "version": {
+            "type": "number",
+            "minimum": 2,
+            "exclusiveMaximum": 3
+        },
+        "user_id": {
+            "type": "integer"
+        },
+        "follower_id": {
+            "type": "integer"
+        },
+        "created": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "version",
+        "user_id",
+        "follower_id",
+        "created"
+    ]
+}

@@ -63,3 +63,14 @@ invoice_data = {
 }
 invoice = library.InvoiceCreated.read(json.dumps(invoice_data))
 print(f"Invoice paid by {invoice.payor_name} in amount of ${invoice.amount}.")
+
+print()
+
+user_followed_data = {
+    "user_id": 1257,
+    "follower_id": 873,
+    "created": time.time(),
+    "version": 2,
+}
+follow = library.UserFollowed.read(json.dumps(user_followed_data))
+print(f"{follow.follower_id} just followed {follow.user_id}.")

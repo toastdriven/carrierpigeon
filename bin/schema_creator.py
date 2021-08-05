@@ -5,7 +5,11 @@ from carrierpigeon import utils
 
 
 if __name__ == "__main__":
-    filename = input("Desired filename: ")
+    filename = input("Desired filename ('.json' assumed): ").strip()
+    version = int(input("Version number [1]: ").strip())
+
+    if not version:
+        version = 1
 
     print()
 
@@ -32,6 +36,8 @@ if __name__ == "__main__":
         print()
 
     print()
+    print("-----")
+    print()
 
-    schema = utils.create_schema(utils.BASE_SCHEMA, filename, fields, required)
+    schema = utils.create_schema(utils.BASE_SCHEMA, filename, fields, required, version=version)
     print(json.dumps(schema, indent=4))
