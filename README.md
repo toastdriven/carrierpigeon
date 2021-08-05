@@ -46,7 +46,7 @@ print(greet.create())
 
 ## Requirements
 
-* Python 3.8+ (though likely will work on previous versions)
+* Python 3.6+
 * `jsonschema`
 
 
