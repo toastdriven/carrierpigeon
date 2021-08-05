@@ -2,8 +2,8 @@ language: python
 sudo: false
 python:
   - "3.8"
-  - "3.9"
-  - "pypy"
-  - "pypy3"
+  # - "3.9"
+  # - "pypy"
+  # - "pypy3"
 # command to run tests
-script: "python setup.py install && pytest tests"
+script: "pip install -e . && pytest tests"
