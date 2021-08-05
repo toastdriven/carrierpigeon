@@ -6,4 +6,4 @@ python:
   - "pypy"
   - "pypy3"
 # command to run tests
-script: "python setup.py && pytest tests"
+script: "python setup.py install && pytest tests"
