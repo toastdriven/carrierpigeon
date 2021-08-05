@@ -2,6 +2,8 @@
 
 Contract-based messages.
 
+[![Build Status](https://travis-ci.com/toastdriven/carrierpigeon.svg?token=H4mXeuGAKKquLkHVssh3&branch=main)](https://travis-ci.com/toastdriven/carrierpigeon)
+
 
 ## Quick Start
 
