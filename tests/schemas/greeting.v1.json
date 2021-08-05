@@ -17,5 +17,6 @@
     },
     "required": [
         "version"
-    ]
+    ],
+    "additionalProperties": false
 }

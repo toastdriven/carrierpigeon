@@ -9,6 +9,7 @@ BASE_SCHEMA = {
     "type": "object",
     "properties": {"version": {"type": "number", "minimum": 1, "exclusiveMaximum": 2}},
     "required": ["version"],
+    "additionalProperties": False,
 }
 
 

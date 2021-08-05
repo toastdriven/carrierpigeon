@@ -4,14 +4,11 @@ import os
 
 import jsonschema
 
+from . import base
 from .. import exceptions
 
 
-class JSONHandler(object):
-    def __init__(self, schema_path=None):
-        self.schema_path = schema_path
-        self.schema = None
-
+class JSONHandler(base.BaseHandler):
     def from_contract(self):
         schema = OrderedDict()
 

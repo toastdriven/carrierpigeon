@@ -30,5 +30,6 @@
         "payor_name",
         "amount",
         "paid_on"
-    ]
+    ],
+    "additionalProperties": false
 }

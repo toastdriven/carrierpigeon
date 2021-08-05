@@ -9,6 +9,8 @@ from .handlers.json import JSONHandler
 
 
 class BaseMessage(object):
+    version_field = "version"
+
     def __init__(self, *args, **kwargs):
         self._orig_data = {}
         self._data = {}
@@ -20,9 +22,9 @@ class BaseMessage(object):
         if kwargs:
             self.from_dict(kwargs)
 
-        # TODO: Not sure I love this.
-        if "version" not in self._orig_data and "version" not in self._data:
-            self._data["version"] = 1
+        if self.version_field:
+            if self.version_field not in self._orig_data and self.version_field not in self._data:
+                self._orig_data[self.version_field] = 1
 
     def __str__(self):
         return f"{self.__class__.__name__}: {self.all_data()}"
@@ -36,10 +38,10 @@ class BaseMessage(object):
         raise AttributeError(f"No attribute named {key}")
 
     def __setattr__(self, key, value):
-        if hasattr(self, key):
-            super().__setattr__(key, value)
-        else:
+        if key in self._fields:
             self._data[key] = value
+        else:
+            super().__setattr__(key, value)
 
     def __delattr__(self, key):
         self._data.pop(key, None)
@@ -65,7 +67,6 @@ class BaseMessage(object):
 
     def from_dict(self, data):
         for field_name in self._fields:
-            # TODO: Throw an error under strict validation if something is missing?
             if field_name in data:
                 self._data[field_name] = data[field_name]
 
@@ -78,8 +79,9 @@ class BaseMessage(object):
     def create(self):
         data = self.all_data()
 
-        if "version" not in data:
-            raise exceptions.CarrierLost("No 'version' present in the message!")
+        if self.version_field:
+            if self.version_field not in data:
+                raise exceptions.CarrierLost(f"No version information '{self.version_field}' present in the message!")
 
         self._handler.validate(data)
         return self._handler.write(data)

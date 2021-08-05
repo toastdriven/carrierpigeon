@@ -25,5 +25,6 @@
         "title",
         "author_id",
         "version"
-    ]
+    ],
+    "additionalProperties": false
 }

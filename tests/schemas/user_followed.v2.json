@@ -25,5 +25,6 @@
         "user_id",
         "follower_id",
         "created"
-    ]
+    ],
+    "additionalProperties": false
 }

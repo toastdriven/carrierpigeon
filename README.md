@@ -51,6 +51,16 @@ print(greet.create())
 New BSD
 
 
+## Running Tests
+
+```shell
+$ pytest tests
+```
+
+Highly recommend that you either use `poetry` or `virtualenv` to isolate the
+package before testing.
+
+
 ## TODO
 
 * [ ] Actual tests, rather than just an example script
