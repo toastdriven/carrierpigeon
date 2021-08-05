@@ -34,7 +34,9 @@ import carrierpigeon as cp
 
 library = cp.load_library("schemas/")
 
+# All contract objects will now be present on the library for use.
 greet = library.Greeting(greeting="Hey", name="friendo")
+
 print(greet.create())
 # '{"version": 1, "greeting": "Hey", "name": "friendo"}'
 ```
@@ -42,7 +44,7 @@ print(greet.create())
 
 ## Requirements
 
-* Python 3.8+ (though may work on previous versions)
+* Python 3.8+ (though likely will work on previous versions)
 * `jsonschema`
 
 
@@ -63,13 +65,13 @@ package before testing.
 
 ## TODO
 
-* [ ] Actual tests, rather than just an example script
+* [x] Actual tests, rather than just an example script
+* [x] Better validation errors w/ JSONSchema
+* [x] The `version` expectations may be too heavy-handed
+* [x] Interactive schema-creation tool (`bin/schema_creator.py`)
 * [ ] Still JSON-heavy
 * [ ] Validation support (fields)
-* [ ] Better validation errors w/ JSONSchema
-* [ ] The `version` expectations may be too heavy-handed
 * [ ] Needs benchmarking/testing for efficiency
 * [ ] Protobuf support?
 * [ ] XML support?
 * [ ] JSONb support?
-* [ ] Interactive schema-creation tool?

@@ -7,13 +7,13 @@ BASE_SCHEMA = {
     "title": "",
     "description": "",
     "type": "object",
-    "properties": {"version": {"type": "number", "minimum": 1, "exclusiveMaximum": 2}},
-    "required": ["version"],
+    "properties": {},
+    "required": [],
     "additionalProperties": False,
 }
 
 
-def create_schema(base, filename, fields, required=None, version=1):
+def create_schema(base, filename, fields, required=None, version=None):
     if not required:
         required = []
 
@@ -25,8 +25,12 @@ def create_schema(base, filename, fields, required=None, version=1):
 
     if version:
         new_schema["$id"] = f"https://example.com/{filename}.v{version}.json"
-        new_schema["properties"]["version"]["minimum"] = version
-        new_schema["properties"]["version"]["exclusiveMaximum"] = version + 1
+        new_schema["properties"]["version"] = {
+            "type": "integer",
+            "minimum": version,
+            "exclusiveMaximum": version + 1,
+        }
+        new_schema["required"].append("version")
 
     for field in fields:
         new_schema["properties"][field[0]] = {
