@@ -13,3 +13,7 @@ class ValidationError(CarrierPigeonError):
         self.errors = errors
         readable = ", ".join([f"'{err_info[0]}: {err_info[1]}" for err_info in self.errors])
         self.message = f"Message validation failed: {readable}"
+
+
+class InvalidContractDirectory(CarrierPigeonError):
+    pass

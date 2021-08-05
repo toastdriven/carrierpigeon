@@ -150,7 +150,7 @@ class MessageFactoryTestCase(unittest.TestCase):
         self.assertEqual(json.loads(msg), {"greeting": "Hey", "name": "friendo", "version": 1})
 
 
-class FunctionsTestCase(unittest.TestCase):
+class MessagesFunctionsTestCase(unittest.TestCase):
     def setUp(self):
         super().setUp()
         self.contract_path = os.path.join(CONTRACT_BASE_PATH, "greeting.v1.json")
