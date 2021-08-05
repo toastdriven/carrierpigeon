@@ -2,6 +2,8 @@
 
 Contract-based messages.
 
+[![Build Status](https://travis-ci.com/toastdriven/carrierpigeon.svg?token=H4mXeuGAKKquLkHVssh3&branch=main)](https://travis-ci.com/toastdriven/carrierpigeon)
+
 
 ## Quick Start
 
@@ -44,7 +46,7 @@ print(greet.create())
 
 ## Requirements
 
-* Python 3.8+ (though likely will work on previous versions)
+* Python 3.6+
 * `jsonschema`
 
 
