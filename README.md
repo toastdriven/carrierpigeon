@@ -71,6 +71,7 @@ package before testing.
 * [x] Interactive schema-creation tool (`bin/schema_creator.py`)
 * [ ] Still JSON-heavy
 * [ ] Validation support (fields)
+* [ ] Documentation
 * [ ] Needs benchmarking/testing for efficiency
 * [ ] Protobuf support?
 * [ ] XML support?

@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name="carrierpigeon",
-    version="0.2.0",
+    version="0.3.0-alpha",
     description="Contract-based messages.",
     author="Daniel Lindsley",
     author_email="daniel@toastdriven.com",

@@ -4,7 +4,7 @@ from .messages import MessageFactory, message_for
 
 __author__ = "Daniel Lindsley"
 __license__ = "New BSD"
-__version__ = (0, 2, 0)
+__version__ = (0, 3, 0, "alpha")
 
 
 def get_short_version():
