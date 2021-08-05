@@ -14,19 +14,20 @@ class JSONHandler(base.BaseHandler):
 
         with open(self.schema_path) as raw_schema_file:
             raw_schema = json.loads(raw_schema_file.read())
-            self.schema = raw_schema
 
-            title = raw_schema.get("title", os.path.basename(self.schema_path).capitalize())
+        self.schema = raw_schema
 
-            for prop_name, prop_info in raw_schema.get("properties", {}).items():
-                schema[prop_name] = {
-                    "type": prop_info.get("type", "string"),
-                }
-                schema[prop_name].setdefault("required", False)
+        title = raw_schema.get("title", os.path.basename(self.schema_path).capitalize())
 
-            for required_prop_name in raw_schema.get("required", []):
-                schema.setdefault(required_prop_name, {})
-                schema[required_prop_name].setdefault("required", True)
+        for prop_name, prop_info in raw_schema.get("properties", {}).items():
+            schema[prop_name] = {
+                "type": prop_info.get("type", "string"),
+            }
+            schema[prop_name].setdefault("required", False)
+
+        for required_prop_name in raw_schema.get("required", []):
+            schema.setdefault(required_prop_name, {})
+            schema[required_prop_name]["required"] = True
 
         return title, schema
 
