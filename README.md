@@ -2,6 +2,13 @@
 
 Contract-based messages.
 
+You define (or are given) a contract, which at present is a
+(JSONSchema)[https://json-schema.org/understanding-json-schema/index.html].
+
+`carrierpigeon` takes that contract & builds Python objects for
+reading/writing those messages. It doesn't handle transport, so you're free
+to integrate it into any messaging environment you'd like.
+
 [![Build Status](https://travis-ci.com/toastdriven/carrierpigeon.svg?token=H4mXeuGAKKquLkHVssh3&branch=main)](https://travis-ci.com/toastdriven/carrierpigeon)
 
 
@@ -44,6 +51,31 @@ print(greet.create())
 ```
 
 
+## Why Contracts?
+
+When you have multiple services communicating, it's useful to define what
+messages should look like up front.
+
+Without a contract, you risk passing around a non-standardized bag of data.
+It's easy for typos to creep in, difficult to tell when new things have been
+added, & drift between libraries/services tends to grow.
+
+With a contract, you can choose what version(s) of messages you'll accept,
+validation will guarantee the data coming in or going out looks correct, &
+producing/consuming those messages can be more standardized.
+
+To make things easier, `carrierpigeon` includes tooling to help create
+those contracts as well. See the `bin/schema_creator.py` script for a way
+to easily/interactively create the JSONSchema cntracts.
+
+
+## Why JSONSchema?
+
+Interoperability, simplicity, & readability are the biggest drivers. There
+are many libraries (in most languages) that can use JSONSchema. JSON itself
+is pretty readable & widely-supported. And debugging should never be a chore.
+
+
 ## Requirements
 
 * Python 3.6+
@@ -76,5 +108,5 @@ package before testing.
 * [ ] Documentation
 * [ ] Needs benchmarking/testing for efficiency
 * [ ] Protobuf support?
+* [ ] BSON support?
 * [ ] XML support?
-* [ ] JSONb support?
